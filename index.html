@@ -1,0 +1,314 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Amjad Patel — Portfolio</title>
+  <meta name="description" content="Portfolio of Amjad Patel — Web Development • Graphic Design • Digital Marketing" />
+  <meta property="og:title" content="Amjad Patel — Portfolio" />
+  <meta property="og:description" content="Web Development • Graphic Design • Digital Marketing" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    :root{
+      --bg:#0f172a;        /* slate-900 */
+      --bg-soft:#111827;   /* gray-900 */
+      --card:#111827;
+      --text:#e5e7eb;      /* gray-200 */
+      --muted:#94a3b8;     /* slate-400 */
+      --brand:#22c55e;     /* green-500 */
+      --brand-2:#60a5fa;   /* blue-400 */
+      --border:#1f2937;    /* gray-800 */
+      --shadow:0 10px 30px rgba(0,0,0,.35)
+    }
+    [data-theme="light"]{
+      --bg:#ffffff;
+      --bg-soft:#f8fafc;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#e2e8f0;
+      --shadow:0 10px 30px rgba(2,6,23,.08)
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}/* Container */
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+
+/* Header */
+header{position:sticky;top:0;z-index:50;background:color-mix(in oklab,var(--bg) 90%, transparent);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--border)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700}
+.logo{width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand-2));box-shadow:var(--shadow)}
+.links{display:flex;gap:18px;align-items:center}
+.links a{padding:8px 10px;border-radius:10px;color:var(--muted)}
+.links a:hover,.links a.active{color:var(--text);background:var(--border)}
+.ghost-btn{border:1px solid var(--border);padding:8px 12px;border-radius:12px}
+.menu-btn{display:none}
+
+/* Sections */
+section{padding:80px 0;border-bottom:1px solid var(--border)}
+.grid{display:grid;gap:22px}
+
+/* Hero */
+.hero{display:grid;gap:22px;align-items:center;grid-template-columns:1.1fr .9fr}
+.hero h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:0 0 8px}
+.hero p{color:var(--muted);margin:0 0 20px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:14px;font-weight:600}
+.btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#0b1020}
+.btn.outline{border:1px solid var(--border)}
+.hero-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:16px;box-shadow:var(--shadow)}
+
+/* Chips */
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.chip{border:1px dashed var(--border);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:14px}
+
+/* Skills */
+.skill{padding:16px;border:1px solid var(--border);border-radius:16px;background:var(--card)}
+.meter{height:10px;background:var(--border);border-radius:999px;overflow:hidden}
+.meter > span{display:block;height:100%;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+
+/* Cards */
+.card{border:1px solid var(--border);background:var(--card);border-radius:18px;padding:16px;box-shadow:var(--shadow)}
+.card h3{margin:6px 0 6px}
+.card p{color:var(--muted);margin:0 0 10px}
+.card .tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{font-size:12px;border:1px solid var(--border);padding:4px 8px;border-radius:999px;color:var(--muted)}
+
+/* Timeline */
+.timeline{position:relative;margin-left:6px}
+.timeline:before{content:"";position:absolute;left:8px;top:0;bottom:0;width:2px;background:var(--border)}
+.t-item{position:relative;margin-left:26px;padding:10px 0}
+.t-item:before{content:"";position:absolute;left:-18px;top:14px;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+
+/* Footer */
+footer{padding:24px 0;color:var(--muted)}
+
+/* Contact */
+form{display:grid;gap:12px}
+input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:var(--bg-soft);color:var(--text)}
+textarea{min-height:120px;resize:vertical}
+
+/* Responsive */
+@media (max-width: 880px){
+  .hero{grid-template-columns:1fr}
+  .links{display:none;position:absolute;top:64px;left:0;right:0;padding:12px 20px;background:var(--bg);border-bottom:1px solid var(--border)}
+  .links.open{display:flex;flex-direction:column;align-items:flex-start}
+  .menu-btn{display:inline-flex}
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><div class="logo" aria-hidden></div> <span>Amjad Patel</span></div>
+      <nav class="links" id="navLinks">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <button id="themeBtn" class="ghost-btn" title="Toggle theme">🌓</button>
+      </nav>
+      <button id="menuBtn" class="ghost-btn menu-btn" aria-label="Toggle menu">☰</button>
+    </div>
+  </header>  <main id="home" class="wrap">
+    <section class="hero">
+      <div>
+        <h1>Hi, I'm Amjad — I build clean, fast websites.</h1>
+        <p>Web Developer • WordPress • SEO • Digital Marketing. I help startups and local businesses get online, get found, and get clients.</p>
+        <div class="btns">
+          <a class="btn primary" href="cv.pdf" download>⬇️ Download CV</a>
+          <a class="btn outline" href="#projects">View Projects</a>
+          <a class="btn outline" href="https://wa.me/9111154407?text=Hello%20Amjad%2C%20I%20need%20a%20website" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+        <div class="chips">
+          <span class="chip">Available for freelance</span>
+          <span class="chip">Remote & On-site (Indore)</span>
+          <span class="chip">Response in 24 hrs</span>
+        </div>
+      </div>
+      <div>
+        <div class="hero-card">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" alt="Developer workspace" style="border-radius:16px">
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px">
+            <div class="card"><strong>25+</strong><div class="muted">Projects</div></div>
+            <div class="card"><strong>18</strong><div class="muted">Happy Clients</div></div>
+            <div class="card"><strong>4.9★</strong><div class="muted">Avg. Rating</div></div>
+          </div>
+        </div>
+      </div>
+    </section><section id="about">
+  <h2>About</h2>
+  <p>I'm a self-taught developer focused on <strong>WordPress/Elementor</strong>, responsive front‑ends, and practical SEO. I build fast, mobile-first sites that convert visitors into leads. When needed, I collaborate with designers and marketers to deliver end‑to‑end solutions.</p>
+  <div class="chips">
+    <span class="chip">WordPress</span>
+    <span class="chip">Elementor</span>
+    <span class="chip">HTML • CSS • JS</span>
+    <span class="chip">SEO</span>
+    <span class="chip">Canva</span>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(230px,1fr))">
+    <div class="skill"><strong>HTML & CSS</strong><div class="meter" aria-label="HTML/CSS 90%"><span style="width:90%"></span></div></div>
+    <div class="skill"><strong>JavaScript</strong><div class="meter" aria-label="JS 75%"><span style="width:75%"></span></div></div>
+    <div class="skill"><strong>WordPress / Elementor</strong><div class="meter" aria-label="WP 85%"><span style="width:85%"></span></div></div>
+    <div class="skill"><strong>SEO & Analytics</strong><div class="meter" aria-label="SEO 70%"><span style="width:70%"></span></div></div>
+    <div class="skill"><strong>Canva & Graphics</strong><div class="meter" aria-label="Canva 80%"><span style="width:80%"></span></div></div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))">
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Business website project" style="border-radius:12px">
+      <h3>Local Bakery Website</h3>
+      <p>WordPress + Elementor site with online menu and WhatsApp ordering. Improved leads by 60%.</p>
+      <div class="tags">
+        <span class="tag">WordPress</span><span class="tag">Elementor</span><span class="tag">SEO</span>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:10px">
+        <a class="btn outline" href="#" target="_blank" rel="noopener">Live</a>
+        <a class="btn outline" href="#" target="_blank" rel="noopener">Case Study</a>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?q=80&w=1200&auto=format&fit=crop" alt="Agency landing page" style="border-radius:12px">
+      <h3>Agency Landing Page</h3>
+      <p>High‑converting landing page with clean copy and analytics tracking.</p>
+      <div class="tags">
+        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JS</span>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:10px">
+        <a class="btn outline" href="#" target="_blank" rel="noopener">Live</a>
+        <a class="btn outline" href="#" target="_blank" rel="noopener">Code</a>
+      </div>
+    </article>
+    <article class="card">
+      <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="Ecommerce mockup" style="border-radius:12px">
+      <h3>Mini Ecommerce</h3>
+      <p>Simple product catalogue with cart (no backend) and Razorpay checkout integration demo.</p>
+      <div class="tags">
+        <span class="tag">JavaScript</span><span class="tag">UI</span>
+      </div>
+      <div style="margin-top:10px;display:flex;gap:10px">
+        <a class="btn outline" href="#" target="_blank" rel="noopener">Live</a>
+        <a class="btn outline" href="#" target="_blank" rel="noopener">Code</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="timeline">
+    <div class="t-item">
+      <h3>Freelance Web Developer <span style="color:var(--muted);font-weight:500">(2023—Present)</span></h3>
+      <p>Built sites for small businesses in Indore: salons, retail, and service providers.</p>
+    </div>
+    <div class="t-item">
+      <h3>Graphic Designer (Part‑time) <span style="color:var(--muted);font-weight:500">(2021—2023)</span></h3>
+      <p>Social media creatives, logo design, and brand kits using Canva and Illustrator.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Have a project in mind? Let's talk.</p>
+  <div class="grid" style="grid-template-columns:1.2fr .8fr">
+    <form id="contactForm">
+      <input name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Email" required />
+      <input name="phone" placeholder="Phone (optional)" />
+      <textarea name="message" placeholder="Your message" required></textarea>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn primary" type="submit">Send</button>
+        <a class="btn outline" href="mailto:hello@example.com">Email</a>
+        <a class="btn outline" id="waBtn" href="#">WhatsApp</a>
+      </div>
+      <small class="muted">This form uses your email app. For a backend, connect Formspree or Google Apps Script.</small>
+    </form>
+    <div class="card">
+      <h3>Details</h3>
+      <p><strong>Location:</strong> Indore, MP</p>
+      <p><strong>Email:</strong> amjadpatel8822@gmail.com</p>
+      <p><strong>Phone:</strong> +91-9111154407</p>
+      <div class="chips">
+        <a class="chip" href="#">LinkedIn</a>
+        <a class="chip" href="#">GitHub</a>
+        <a class="chip" href="#">YouTube</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+      <span>© <span id="year"></span> Amjad Patel. All rights reserved.</span>
+      <div style="display:flex;gap:12px">
+        <a href="#home">Top ↑</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>  <script>
+    // Theme toggle with persistence
+    const root = document.documentElement;
+    const savedTheme = localStorage.getItem('theme');
+    if(savedTheme) root.setAttribute('data-theme', savedTheme);
+    const themeBtn = document.getElementById('themeBtn');
+    themeBtn?.addEventListener('click',()=>{
+      const cur = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+      root.setAttribute('data-theme', cur);
+      localStorage.setItem('theme', cur);
+    });
+
+    // Mobile menu
+    const menuBtn = document.getElementById('menuBtn');
+    const navLinks = document.getElementById('navLinks');
+    menuBtn?.addEventListener('click',()=>navLinks.classList.toggle('open'));
+
+    // Active link on scroll
+    const links = [...document.querySelectorAll('.links a[href^="#"]')];
+    const sections = links.map(a => document.querySelector(a.getAttribute('href')));
+    const spy = () => {
+      const pos = window.scrollY + 90;
+      sections.forEach((sec,i)=>{
+        if(!sec) return;
+        const top = sec.offsetTop, bot = top + sec.offsetHeight;
+        const link = links[i];
+        if(pos>=top && pos<bot){ links.forEach(l=>l.classList.remove('active')); link.classList.add('active'); }
+      });
+    };
+    window.addEventListener('scroll', spy); spy();
+
+    // Contact form: open email client & prep WhatsApp link
+    const form = document.getElementById('contactForm');
+    const waBtn = document.getElementById('waBtn');
+    form?.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      const subject = encodeURIComponent(`New inquiry from ${data.name}`);
+      const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone||''}\n\n${data.message}`);
+      window.location.href = `mailto:hello@example.com?subject=${subject}&body=${body}`;
+    });
+    waBtn?.addEventListener('click',(e)=>{
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      const text = encodeURIComponent(`Hi Amjad, I'm ${data.name||''}. ${data.message||'I have a project.'}`);
+      window.open(`https://wa.me/91XXXXXXXXXX?text=${text}`, '_blank');
+    });
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script></body>
+</html>
